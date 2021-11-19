@@ -43,7 +43,7 @@ spec:
   ports:
     - port: 80
       protocol: TCP
-      targetPort: 8080
-  type: LoadBalancer
+      targetPort: 80
+  type: ClusterIP
   selector:
     name: custom-app
