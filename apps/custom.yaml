@@ -11,6 +11,6 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argocd_apps/catalogue
-    repoURL: ssh://APKA4XV53JDUHNQFNRMW@git-codecommit.eu-central-1.amazonaws.com/v1/repos/cmp-argocd
+    path: apps/custom
+    repoURL: ssh://git@github.com:idubrovin/try-out-argocd.git
     targetRevision: HEAD
