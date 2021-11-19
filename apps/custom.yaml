@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: custom-app
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: argocd_apps/catalogue
+    repoURL: ssh://APKA4XV53JDUHNQFNRMW@git-codecommit.eu-central-1.amazonaws.com/v1/repos/cmp-argocd
+    targetRevision: HEAD

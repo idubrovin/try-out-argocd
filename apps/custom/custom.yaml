@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-app-deployment
+  labels:
+    name: custom-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: custom-app
+  template:
+    metadata:
+      labels:
+        name: custom-app
+    spec:
+      containers:
+        - name: custom-app
+          image: zooleen/sleepy
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1000Mi
+            requests:
+              cpu: 300m
+              memory: 700Mi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: custom-app-svc
+  labels:
+    name: custom-app
+  namespace: default
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+  type: LoadBalancer
+  selector:
+    name: custom-app
