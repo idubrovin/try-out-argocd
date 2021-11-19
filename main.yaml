@@ -8,7 +8,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: apps
-    repoURL: 'ssh://git@github.com:idubrovin/try-out-argocd.git'
+    repoURL: 'git@github.com:idubrovin/try-out-argocd.git'
     targetRevision: HEAD
     project: default
   syncPolicy:
