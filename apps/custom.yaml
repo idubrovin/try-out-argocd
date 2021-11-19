@@ -14,3 +14,7 @@ spec:
     path: apps/custom
     repoURL: git@github.com:idubrovin/try-out-argocd.git
     targetRevision: HEAD
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
